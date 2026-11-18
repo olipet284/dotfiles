@@ -1,7 +1,7 @@
 # Custom GNOME shortcuts: add one call per shortcut.
 add_custom_keybinding 'Ulauncher' 'sh -c "pgrep -x ulauncher && { ulauncher-toggle || true; } || setsid -f ulauncher"' '<Alt>space'
 add_custom_keybinding 'Flameshot' 'sh -c -- "flameshot gui"' '<Control>Print'
-add_custom_keybinding 'New Alacritty Window' 'alacritty' '<Super>Return'
+add_custom_keybinding 'New Ghostty Window' 'ghostty' '<Super>Return'
 add_custom_keybinding 'New Firefox Window' 'firefox --new-window' '<Shift><Super>b'
 add_custom_keybinding 'New Brave Window' 'sh -c -- "if command -v brave-browser >/dev/null 2>&1; then exec brave-browser --new-window; elif command -v brave >/dev/null 2>&1; then exec brave --new-window; else exec flatpak run com.brave.Browser --new-window; fi"' '<Shift><Super><Alt>b'
 add_custom_keybinding 'Open Work Calendar' 'firefox https://outlook.cloud.microsoft/calendar/view/workweek' '<Shift><Super>c'
