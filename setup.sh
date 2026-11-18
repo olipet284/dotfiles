@@ -3,11 +3,9 @@ set -euo pipefail
 
 repo_root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 config_home="${XDG_CONFIG_HOME:-$HOME/.config}"
-backup_root="$HOME/.dotfiles-backup"
-backup_dir=
 
 link_file() {
-  local source=$1 destination=$2 backup_relative=$3 backup_target
+  local source=$1 destination=$2 backup_target
 
   mkdir -p "$(dirname -- "$destination")"
   if [[ -L "$destination" && "$(readlink "$destination")" == "$source" ]]; then
@@ -15,12 +13,11 @@ link_file() {
   fi
 
   if [[ -e "$destination" || -L "$destination" ]]; then
-    if [[ -z "$backup_dir" ]]; then
-      mkdir -p "$backup_root"
-      backup_dir="$(mktemp -d "$backup_root/$(date +%Y%m%d-%H%M%S).XXXXXX")"
+    backup_target="$destination-BAK-$(date +%Y%m%d-%H%M%S)"
+    if [[ -e "$backup_target" || -L "$backup_target" ]]; then
+      printf 'Backup already exists: %s\n' "$backup_target" >&2
+      return 1
     fi
-    backup_target="$backup_dir/$backup_relative"
-    mkdir -p "$(dirname -- "$backup_target")"
     mv -- "$destination" "$backup_target"
     printf 'Backed up %s to %s\n' "$destination" "$backup_target"
   fi
@@ -38,16 +35,12 @@ install_config_tree() {
       install_config_tree "$source"
     elif [[ -f "$source" || -L "$source" ]]; then
       relative=${source#"$repo_root/config/"}
-      link_file "$source" "$config_home/$relative" "config/$relative"
+      link_file "$source" "$config_home/$relative"
     fi
   done
 }
 
 shopt -s nullglob dotglob
-link_file "$repo_root/.bashrc" "$HOME/.bashrc" .bashrc
-link_file "$repo_root/.zshrc" "$HOME/.zshrc" .zshrc
+link_file "$repo_root/.bashrc" "$HOME/.bashrc"
+link_file "$repo_root/.zshrc" "$HOME/.zshrc"
 install_config_tree "$repo_root/config"
-
-if [[ -n "$backup_dir" ]]; then
-  printf 'Existing files are preserved in %s\n' "$backup_dir"
-fi
