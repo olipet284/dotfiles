@@ -8,4 +8,4 @@ Set up the startup files and all config with one command from the repository roo
 ./setup.sh
 ```
 
-The installer links `.bashrc`, `.zshrc`, and each file under `config/` into `${XDG_CONFIG_HOME:-$HOME/.config}`. It is safe to rerun. Conflicting existing files are moved to a timestamped directory under `~/.dotfiles-backup/` before linking.
+The installer links `.bashrc`, `.zshrc`, and each file under `config/` into `${XDG_CONFIG_HOME:-$HOME/.config}`. It is safe to rerun. Conflicting existing files are renamed in place with a `-BAK-YYYYMMDD-HHMMSS` suffix before linking.
