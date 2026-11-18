@@ -11,3 +11,5 @@ Set up the startup files and all config with one command from the repository roo
 The installer links `.bashrc`, `.zshrc`, and each file under `config/` into `${XDG_CONFIG_HOME:-$HOME/.config}`. It is safe to rerun. Conflicting existing files are renamed in place with a `-BAK-YYYYMMDD-HHMMSS` suffix before linking.
 
 GNOME custom shortcuts are in `config/olikub/hotkeys/`. Olikub reads each `*.sh` file in that directory when applying its hotkeys; add shortcuts with `add_custom_keybinding 'Name' 'command' '<Binding>'`. (See [my personal Omakub fork](https://github.com/olipet284/olikub)).
+
+Current Olikub shortcuts: Super+Enter opens Ghostty, Super+Shift+T opens the theme picker, and Ctrl+Super+L locks the screen. Teams is on Ctrl+Alt+Super+T.
