@@ -24,13 +24,14 @@ add_custom_keybinding 'Open Slack' "$WORK_BROWSER https://sallinggroup.slack.com
 add_custom_keybinding 'Open Teams' "$WORK_BROWSER https://teams.microsoft.com/" '<Shift><Super><Alt>t'
 ## Editors
 add_custom_keybinding 'Open Obsidian' 'sh -c -- "if [ -x /opt/Obsidian/obsidian ]; then exec /opt/Obsidian/obsidian; elif command -v obsidian >/dev/null 2>&1; then exec obsidian; else exec gtk-launch obsidian.desktop; fi"' '<Shift><Super>o'
+add_custom_keybinding 'New Fleeting Note' "xdg-open 'obsidian://quickadd?vault=vault&choice=Fleeting%20Note%20Window'" '<Shift><Super><Alt>o'
 add_custom_keybinding 'Open Marktext' 'sh -c -- "if command -v marktext >/dev/null 2>&1; then exec marktext; else exec gtk-launch marktext.desktop; fi"' '<Shift><Super>n'
 add_custom_keybinding 'Open Neovim' "$TERMINAL -e nvim" '<Shift><Super><Alt>n'
 add_custom_keybinding 'Open VS Code' 'code' '<Shift><Super>v'
 add_custom_keybinding 'Open VS Code Agent Window' 'code --new-window' '<Shift><Super><Alt>v'
 ## Files
 add_custom_keybinding 'Open File Explorer' 'nautilus' '<Shift><Super><Alt>f'
-add_custom_keybinding 'Open Yazi' 'yazi' '<Shift><Super>f'
+add_custom_keybinding 'Open Yazi' "$TERMINAL -e yazi" '<Shift><Super>f'
 
 # Settings
 add_custom_keybinding 'Open Bluetooth Settings' 'gnome-control-center bluetooth' '<Control><Super>b'
