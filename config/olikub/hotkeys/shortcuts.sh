@@ -31,7 +31,7 @@ add_custom_keybinding 'Open VS Code' 'code' '<Shift><Super>v'
 add_custom_keybinding 'Open VS Code Agent Window' 'code --new-window' '<Shift><Super><Alt>v'
 ## Files
 add_custom_keybinding 'Open File Explorer' 'nautilus' '<Shift><Super><Alt>f'
-add_custom_keybinding 'Open Yazi' 'yazi' '<Shift><Super>f'
+add_custom_keybinding 'Open Yazi' "$TERMINAL -e yazi" '<Shift><Super>f'
 
 # Settings
 add_custom_keybinding 'Open Bluetooth Settings' 'gnome-control-center bluetooth' '<Control><Super>b'
