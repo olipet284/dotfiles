@@ -13,3 +13,5 @@ The installer links `.bashrc`, `.zshrc`, and each file under `config/` into `${X
 GNOME custom shortcuts are in `config/olikub/hotkeys/`. Olikub reads each `*.sh` file in that directory when applying its hotkeys; add shortcuts with `add_custom_keybinding 'Name' 'command' '<Binding>'`. (See [my personal Omakub fork](https://github.com/olipet284/olikub)).
 
 Current Olikub shortcuts: Super+Enter opens Ghostty, Super+Shift+T opens the theme picker, and Ctrl+Super+L locks the screen. Teams is on Ctrl+Alt+Super+T.
+
+`config/ghostty/config.ghostty` keeps Ghostty's base settings only. The theme is left to Olikub, which writes `~/.config/ghostty/config` when you pick a theme.
