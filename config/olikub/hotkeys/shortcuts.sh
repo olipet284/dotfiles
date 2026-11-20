@@ -9,6 +9,7 @@ add_custom_keybinding 'Flameshot' 'sh -c -- "flameshot gui"' '<Control>Print'
 add_custom_keybinding 'Choose Olikub Theme' "$TERMINAL -e bash -ic 'olikub theme'" '<Shift><Super>t'
 add_custom_keybinding 'Lock Screen' 'loginctl lock-session' '<Control><Super>l'
 add_custom_keybinding 'New Terminal Window' "$TERMINAL" '<Super>Return'
+add_custom_keybinding 'Next Wallpaper' 'olikub wallpaper next' '<Control><Super>space'
 
 # Applications
 ## Browser
